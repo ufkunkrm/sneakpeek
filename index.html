@@ -185,6 +185,24 @@
         .image-content:hover img {
             transform: scale(1.05);
         }
+        .player-photo {
+            border-color: rgba(212, 175, 55, 0.45);
+        }
+        .player-photo::before {
+            content: "BEŞİKTAŞ • 1903";
+            position: absolute;
+            left: 22px;
+            bottom: 18px;
+            z-index: 4;
+            color: #D4AF37;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+        .player-photo img {
+            filter: grayscale(100%) contrast(125%) brightness(78%);
+        }
 
         /* İSTATİSTİK BANNER */
         .stats-banner {
@@ -276,10 +294,10 @@
     <section>
         <div class="text-content">
             <h2>Vlahović: Ceza Sahasının Kabusu</h2>
-            <p>Gözünü kırpmadan vuran, savunmaların korkulu rüyası ve her an maçı koparabilen bir lider. Dušan Vlahović, siyah-beyazlı formayı sırtına geçirdiği an sadece gol atmaz; rakibin direncini tek başına kırar.</p>
-            <p>Avrupa'nın dev sahnelerinde yürürken, aranan o bitirici parça artık Karakartal'ın namlusunda.</p>
+            <p>Gözünü kırpmadan vuran, savunmaların korkulu rüyası ve her an maçı koparabilen bir lider. Dušan Vlahović, siyah-beyaz ruhun aradığı bitirici gücü temsil ediyor.</p>
+            <p>Avrupa'nın dev sahnelerinde yürürken, aranan o bitirici parça artık Karakartal'ın hedefinde.</p>
         </div>
-        <div class="image-content film-grain">
+        <div class="image-content player-photo film-grain">
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Dusan_Vlahovic.jpg" alt="Dušan Vlahović" loading="lazy">
         </div>
     </section>
@@ -288,10 +306,10 @@
     <section>
         <div class="text-content">
             <h2>Trossard: Zekâ ve Zarafet</h2>
-            <p>Dar alanda doğru kararı veren, oyunun ritmini değiştiren ve savunma arkasına sızan bir hücum aklı. Leandro Trossard, siyah-beyaz formaya teknik kalite ve Avrupa tecrübesi taşıyor.</p>
+            <p>Dar alanda doğru kararı veren, oyunun ritmini değiştiren ve savunma arkasına sızan bir hücum aklı. Leandro Trossard, siyah-beyaz vizyona teknik kalite ve Avrupa tecrübesi taşıyor.</p>
             <p>Vlahović'in gücüyle Trossard'ın hareketliliği birleştiğinde, Beşiktaş'ın yeni hücum hikâyesi başlıyor.</p>
         </div>
-        <div class="image-content film-grain">
+        <div class="image-content player-photo film-grain">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Leandro_Trossard_2022.jpg" alt="Leandro Trossard" loading="lazy">
         </div>
     </section>
