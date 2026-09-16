@@ -3,204 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beşiktaş J.K. | Avrupa Geceleri & Vlahović</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <title>Vlahović | La Passion de Beşiktaş</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
         body {
-            background: radial-gradient(circle at center, #141414 0%, #080808 100%);
+            background-color: #0b0b0b;
             color: #F4F1EA;
             font-family: 'Inter', sans-serif;
-            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* FİLM GRAİN / PİNTEREST DOKU EFEKTİ */
+        .film-grain {
+            position: relative;
+        }
+        .film-grain::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* HERO / İLK EKRAN (Pinterest Dark Moody Vibe) */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(11,11,11,0.95)), url('https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* BEŞİKTAŞ LOGO STİLİ */
+        .bjk-logo-container {
+            width: 115px;
+            height: 115px;
+            margin-bottom: 25px;
+            padding: 8px;
+            background: rgba(18, 18, 18, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 50%;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
-            padding: 24px;
-            position: relative;
+            backdrop-filter: blur(5px);
+            z-index: 4;
         }
-        /* Beşiktaş ve Avrupa'nın asil siyah-beyaz & şampanya dokusu */
-        body::before {
-            content: '';
-            position: absolute;
+        .bjk-logo-container img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(0,0,0,0.9) 0%, rgba(26,26,26,0.6) 100%);
-            z-index: 1;
+            object-fit: contain;
         }
-        .container {
-            position: relative;
-            z-index: 2;
-            max-width: 750px;
-            padding: 50px;
-            background: rgba(18, 18, 18, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 6px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.9);
-            text-align: center;
-        }
-        .badge {
-            font-size: 0.8rem;
+        .hero .badge {
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             color: #D4AF37;
             margin-bottom: 15px;
-            font-weight: 600;
+            font-weight: 500;
+            z-index: 4;
         }
-        h1 {
+        .hero h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.8rem;
+            font-size: 4.2rem;
             font-weight: 700;
             color: #FFFFFF;
+            letter-spacing: 4px;
             margin-bottom: 15px;
-            letter-spacing: 3px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            z-index: 4;
         }
-        h1 span {
+        .hero h1 span {
             color: #D4AF37;
         }
-        .subtitle {
+        .hero p {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-size: 1.5rem;
             color: #C5C1B9;
-            margin-bottom: 30px;
+            max-width: 700px;
             letter-spacing: 1px;
+            margin-bottom: 40px;
+            z-index: 4;
         }
-        p {
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            color: #D4AF37;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+            z-index: 4;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* LA PASSION ÖZEL VURGU BÖLÜMÜ */
+        .passion-banner {
+            background: linear-gradient(135deg, #161616 0%, #0d0d0d 100%);
+            padding: 60px 10%;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .passion-banner h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #D4AF37;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .passion-banner p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #B0ACC5;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* BÖLÜMLER ORTAK STİL */
+        section {
+            padding: 120px 10%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        section:nth-child(even) {
+            flex-direction: row-reverse;
+            background: #111111;
+        }
+        .text-content {
+            flex: 1;
+        }
+        .text-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: #D4AF37;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .text-content p {
             font-weight: 300;
             color: #A09C94;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            margin-bottom: 40px;
-            letter-spacing: 0.5px;
+            line-height: 1.9;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
         }
-        .stats {
-            display: flex;
-            justify-content: center;
+
+        /* GÖRSEL ALANI VE PİNTEREST ESTETİĞİ */
+        .image-content {
+            flex: 1;
+            height: 450px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            position: relative;
+        }
+        .image-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(45%) contrast(120%) brightness(85%);
+            transition: transform 0.6s ease;
+        }
+        .image-content:hover img {
+            transform: scale(1.05);
+        }
+
+        /* İSTATİSTİK BANNER */
+        .stats-banner {
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            margin-bottom: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
-        .stat-item span {
-            display: block;
-        }
-        .stat-num {
+        .stat-box h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 3.5rem;
             color: #D4AF37;
-            font-weight: 700;
+            margin-bottom: 10px;
         }
-        .stat-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #888;
-            margin-top: 5px;
-        }
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: transparent;
-            color: #D4AF37;
-            border: 1px solid #D4AF37;
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
+        .stat-box p {
             font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: #080808;
+            color: #666;
+            font-size: 0.9rem;
             letter-spacing: 2px;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            cursor: pointer;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .btn:hover {
-            background: #D4AF37;
-            color: #121212;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
-        }
-        @media (max-width: 600px) {
-            body {
-                align-items: flex-start;
-                padding: 16px;
-            }
-            .container {
-                width: 100%;
-                padding: 32px 20px;
-            }
-            .badge {
-                font-size: 0.68rem;
-                letter-spacing: 3px;
-            }
-            h1 {
-                font-size: clamp(2.4rem, 12vw, 3.2rem);
-                line-height: 1;
-                letter-spacing: 1px;
-            }
-            .subtitle {
-                font-size: 1.25rem;
-            }
-            p {
-                font-size: 0.95rem;
-                margin-bottom: 30px;
-            }
-            .stats {
-                gap: 18px;
-                margin-bottom: 30px;
-            }
-            .stat-num {
-                font-size: 1.55rem;
-            }
-            .stat-label {
-                font-size: 0.62rem;
-                letter-spacing: 1px;
-            }
-            .btn-group {
-                width: 100%;
-            }
-            .btn {
-                width: 100%;
-                padding: 14px 16px;
-                font-size: 0.76rem;
-            }
+        footer span {
+            color: #D4AF37;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="badge">BJK • Black & White Aristocracy</div>
-        <h1>DUŞAN <span>VLAHOVIĆ</span></h1>
-        <div class="subtitle">"Avrupa Gecelerinin Siyah Beyaz Kabusu"</div>
-        <p>Karakartal'ın uluslararası sahnedeki yenilmez ruhu, ceza sahasındaki ölümcül soğukkanlılıkla birleşiyor. Siyahın asaleti, beyazın gururu ve Avrupa kupası hedefleri için yeni bir devir başlıyor.</p>
-        
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-num">1903</span>
-                <span class="stat-label">Kuruluş</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-num">9</span>
-                <span class="stat-label">Avrupa Hedefi</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-num">91</span>
-                <span class="stat-label">Karakter Hırsı</span>
-            </div>
-        </div>
 
-        <div class="btn-group">
-            <a href="#" class="btn">AVRUPA'YA YÜRÜYÜŞ</a>
+    <!-- 1. BÖLÜM: HERO & LOGO -->
+    <div class="hero film-grain">
+        <div class="bjk-logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Be%C5%9Fikta%C5%9F_JK_logo.svg" alt="Beşiktaş J.K. Arması">
+        </div>
+        <div class="badge">Beşiktaş J.K. • La Passion</div>
+        <h1>DUŠAN <span>VLAHOVIĆ</span></h1>
+        <p>"Siyahın matemine inat, beyazın parlak zaferiyle yazılacak bir Avrupa destanı."</p>
+        <div class="scroll-down">↓ Keşfetmek İçin Kaydırın ↓</div>
+    </div>
+
+    <!-- LA PASSION ÖZEL BÖLÜMÜ -->
+    <div class="passion-banner">
+        <h2>La Passion de Beşiktaş</h2>
+        <p>"Tutku, sadece bir duygu değil; tribünlerin efendiliğe ve siyah-beyaz renklere adanmış ömürlük inançla sokağa döküldüğü andır."</p>
+    </div>
+
+    <!-- İSTATİSTİKLER -->
+    <div class="stats-banner">
+        <div class="stat-box">
+            <h3>1903</h3>
+            <p>Şerefiyle Oyna, Hakkıyla Kazan</p>
+        </div>
+        <div class="stat-box">
+            <h3>91</h3>
+            <p>Bitirici İçgüdü & Hırs</p>
+        </div>
+        <div class="stat-box">
+            <h3>AVRUPA</h3>
+            <p>Hedef Kupa, Sahne Karakartal</p>
         </div>
     </div>
+
+    <!-- 2. BÖLÜM: BLACK & WHITE SOUL (Pinterest Moody Stadium) -->
+    <section>
+        <div class="text-content">
+            <h2>Siyahın ve Beyazın Asaleti</h2>
+            <p>Beşiktaş, sadece bir futbol kulübü değil; boğazın serin rüzgarlarıyla beslenen, milyonların kalbinde taht kurmuş bir yaşam biçimidir. Tarihinin her sayfasında gurur, direniş ve adalet vardır.</p>
+            <p>Bu köklü miras, şimdi dünya futbolunun en keskin ve karizmatik golcülerinden biriyle yeni bir boyuta evriliyor.</p>
+        </div>
+        <div class="image-content film-grain">
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000&auto=format&fit=crop" alt="Pinterest Stil Stadyum">
+        </div>
+    </section>
+
+    <!-- 3. BÖLÜM: VLAHOVIC FACTOR (Pinterest Dark Striker Vibe) -->
+    <section>
+        <div class="text-content">
+            <h2>Ceza Sahasının Kabusu</h2>
+            <p>Gözünü kırpmadan vuran, savunmaların korkulu rüyası ve her an maçı koparabilen bir lider. Dušan Vlahović, siyah-beyazlı formayı sırtına geçirdiği an sadece gol atmaz; rakibin direncini tek başına kırar.</p>
+            <p>Avrupa'nın dev sahnelerinde yürürken, aranan o bitirici parça artık Karakartal'ın namlusunda.</p>
+        </div>
+        <div class="image-content film-grain">
+            <img src="https://images.unsplash.com/photo-1568643938835-2bb3cf445a28?q=80&w=1000&auto=format&fit=crop" alt="Pinterest Stil Forvet Hırsı">
+        </div>
+    </section>
+
+    <!-- 4. BÖLÜM: EUROPEAN NIGHTS (Pinterest Retro Match Atmosphere) -->
+    <section>
+        <div class="text-content">
+            <h2>Avrupa Gecelerinin Ritmi</h2>
+            <p>Işıklar yandığında, tribünler tek bir ağızdan marşlar söylediğinde tarihin akışı değişir. Dolmabahçe'nin büyüleyici atmosferi, Avrupa kupalarının o ihtişamlı müzikleriyle birleşiyor.</p>
+            <p>Bu yolculuk, sadece bir turnuva macerası değil; adını Avrupa'nın zirvesine altın harflerle yazdırma misyonudur.</p>
+        </div>
+        <div class="image-content film-grain">
+            <img src="https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=1000&auto=format&fit=crop" alt="Pinterest Stil Avrupa Gecesi">
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Beşiktaş J.K. & <span>Vlahović Project</span>. Tüm Hakları Saklıdır. La Passion & Quiet Luxury.</p>
+    </footer>
+
 </body>
 </html>
