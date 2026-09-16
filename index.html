@@ -15,11 +15,12 @@
             background: radial-gradient(circle at center, #141414 0%, #080808 100%);
             color: #F4F1EA;
             font-family: 'Inter', sans-serif;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
+            padding: 24px;
             position: relative;
         }
         /* Beşiktaş ve Avrupa'nın asil siyah-beyaz & şampanya dokusu */
@@ -127,6 +128,51 @@
             background: #D4AF37;
             color: #121212;
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+        }
+        @media (max-width: 600px) {
+            body {
+                align-items: flex-start;
+                padding: 16px;
+            }
+            .container {
+                width: 100%;
+                padding: 32px 20px;
+            }
+            .badge {
+                font-size: 0.68rem;
+                letter-spacing: 3px;
+            }
+            h1 {
+                font-size: clamp(2.4rem, 12vw, 3.2rem);
+                line-height: 1;
+                letter-spacing: 1px;
+            }
+            .subtitle {
+                font-size: 1.25rem;
+            }
+            p {
+                font-size: 0.95rem;
+                margin-bottom: 30px;
+            }
+            .stats {
+                gap: 18px;
+                margin-bottom: 30px;
+            }
+            .stat-num {
+                font-size: 1.55rem;
+            }
+            .stat-label {
+                font-size: 0.62rem;
+                letter-spacing: 1px;
+            }
+            .btn-group {
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 0.76rem;
+            }
         }
     </style>
 </head>
