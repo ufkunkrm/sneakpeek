@@ -3,48 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asil Web Sitem</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <title>Beşiktaş J.K. | Avrupa Geceleri & Vlahović</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #121212;
-            color: #F4F1EA;
-            font-family: 'Inter', sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        body {
+            background: radial-gradient(circle at center, #141414 0%, #080808 100%);
+            color: #F4F1EA;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Beşiktaş ve Avrupa'nın asil siyah-beyaz & şampanya dokusu */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.9) 0%, rgba(26,26,26,0.6) 100%);
+            z-index: 1;
         }
         .container {
-            max-width: 600px;
-            padding: 40px;
-            background-color: #1A1A1A;
-            border: 1px solid #2A2A2A;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            padding: 50px;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 6px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+            text-align: center;
+        }
+        .badge {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #D4AF37;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        h1 span {
             color: #D4AF37;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #C5C1B9;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
         }
         p {
             font-weight: 300;
-            color: #B0ACC5;
-            line-height: 1.6;
-            font-size: 1.1rem;
+            color: #A09C94;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 0;
+        }
+        .stat-item span {
+            display: block;
+        }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: #D4AF37;
+            font-weight: 700;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-top: 5px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: transparent;
+            color: #D4AF37;
+            border: 1px solid #D4AF37;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #D4AF37;
+            color: #121212;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hoş Geldiniz</h1>
-        <p>Sadelik, en büyük gelişmişlik biçimidir. Bu alan tamamen sizin estetik vizyonunuzu yansıtmak için hazırlandı.</p>
+        <div class="badge">BJK • Black & White Aristocracy</div>
+        <h1>DUŞAN <span>VLAHOVIĆ</span></h1>
+        <div class="subtitle">"Avrupa Gecelerinin Siyah Beyaz Kabusu"</div>
+        <p>Karakartal'ın uluslararası sahnedeki yenilmez ruhu, ceza sahasındaki ölümcül soğukkanlılıkla birleşiyor. Siyahın asaleti, beyazın gururu ve Avrupa kupası hedefleri için yeni bir devir başlıyor.</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-num">1903</span>
+                <span class="stat-label">Kuruluş</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">9</span>
+                <span class="stat-label">Avrupa Hedefi</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">91</span>
+                <span class="stat-label">Karakter Hırsı</span>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="#" class="btn">AVRUPA'YA YÜRÜYÜŞ</a>
+        </div>
     </div>
 </body>
 </html>
