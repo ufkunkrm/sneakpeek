@@ -228,6 +228,83 @@
         footer span {
             color: #D4AF37;
         }
+        @media (max-width: 700px) {
+            .hero {
+                min-height: 100svh;
+                height: auto;
+                padding: 32px 16px 72px;
+            }
+            .bjk-logo-container {
+                width: 92px;
+                height: 92px;
+                margin-bottom: 20px;
+            }
+            .hero .badge {
+                font-size: 0.65rem;
+                letter-spacing: 3px;
+            }
+            .hero h1 {
+                font-size: clamp(2.35rem, 12vw, 3.5rem);
+                line-height: 1;
+                letter-spacing: 1px;
+            }
+            .hero p {
+                font-size: 1.2rem;
+                line-height: 1.35;
+                margin-bottom: 24px;
+            }
+            .scroll-down {
+                bottom: 20px;
+                font-size: 0.65rem;
+                letter-spacing: 1.5px;
+            }
+            .passion-banner {
+                padding: 44px 20px;
+            }
+            .passion-banner h2 {
+                font-size: 1.85rem;
+                letter-spacing: 2px;
+            }
+            .passion-banner p {
+                font-size: 1.15rem;
+            }
+            section,
+            section:nth-child(even) {
+                padding: 72px 20px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 32px;
+            }
+            .text-content h2 {
+                font-size: 2.35rem;
+                line-height: 1.05;
+            }
+            .text-content p {
+                font-size: 1rem;
+                line-height: 1.75;
+            }
+            .image-content {
+                width: 100%;
+                height: min(72vw, 360px);
+            }
+            .stats-banner {
+                grid-template-columns: 1fr;
+                padding: 56px 20px;
+                gap: 32px;
+            }
+            .stat-box h3 {
+                font-size: 2.8rem;
+            }
+            .stat-box p {
+                font-size: 0.72rem;
+                letter-spacing: 2px;
+            }
+            footer {
+                padding: 36px 20px;
+                font-size: 0.75rem;
+                line-height: 1.7;
+            }
+        }
     </style>
 </head>
 <body>
